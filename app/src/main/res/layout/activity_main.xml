@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:fitsSystemWindows="true"
+        android:id="@+id/mainImg"
+        android:background="@drawable/lgndesing"/>
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:background="@drawable/windowbackground"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/bground"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:padding="16dp"
+        android:id="@+id/Email"
+        android:inputType="textEmailAddress"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#D6D5D5"
+        android:layout_below="@+id/mainImg"/>
+
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#D6D5D5"
+        android:layout_below="@+id/Email"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:textColor="#525562"
+        android:layout_alignParentBottom="true"
+        android:textSize="30sp"
+        android:layout_marginRight="150dp"
+        android:textStyle="bold"
+        android:padding="40dp"
+        />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="#525562"
+        app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+        app:tint="#fff"
+        app:fabSize="normal"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        app:elevation="20dp"
+        android:clickable="true" />
+
+    <!--<at.markushi.ui.CircleButton
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/button_design"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_arrow_forward_black_24dp"/>-->
+
+</RelativeLayout>

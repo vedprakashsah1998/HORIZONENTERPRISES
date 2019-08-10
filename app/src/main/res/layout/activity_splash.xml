@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SplashActivity">
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="16dp"
+        android:layout_marginLeft="20dp"
+        android:elevation="30dp"
+        android:shadowColor="#525562"
+        android:shadowRadius="2.5"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:src="@drawable/button_design"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/ring"
+        android:layout_marginLeft="30dp"
+        android:elevation="30dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/custome_design"/>
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HORIZON"
+        android:id="@+id/brand"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:shadowRadius="1.5"
+        android:shadowDx="3"
+        android:shadowDy="-3"
+        android:elevation="30dp"
+        android:shadowColor="#525562"
+        android:textColor="#2A314E"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ring"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTERPRISES"
+        android:id="@+id/brand1"
+        android:textStyle="bold"
+        android:elevation="30dp"
+        android:textSize="30dp"
+        android:shadowColor="#525562"
+        android:shadowRadius="1.5"
+        android:shadowDx="3"
+        android:shadowDy="-3"
+        android:textColor="#2A314E"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/brand"
+        />
+
+</RelativeLayout>
