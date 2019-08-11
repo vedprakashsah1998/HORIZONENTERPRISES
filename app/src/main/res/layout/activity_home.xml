@@ -10,84 +10,21 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity">
 
+
+
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/myAppBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    app:elevation="0dp">
-    <!--<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:id="@+id/appBar009"
-            android:layout_height="?attr/actionBarSize">-->
+    <FrameLayout
+      android:id="@+id/container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="HORIZON"
-        android:background="#FFFFFF"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways"
-        android:elevation="16dp"
-        app:contentInsetStart="0dp"
-        android:id="@+id/appBar"
-        app:titleTextColor="#525562"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignParentBottom="true"
-        android:elevation="50dp"
-        android:background="#FCADACAC" />
-</com.google.android.material.appbar.AppBarLayout>
-<!--
-        </RelativeLayout>
--->
-<!--<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/my_recycler_view"
-    android:clipToPadding="false"
-    />-->
+  </FrameLayout>
 
-<!--
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_below="@+id/appbar"
-        android:fillViewport="true">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
-    </ScrollView>
--->
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:layout_height="match_parent" />
-
-<!--
-</RelativeLayout>
--->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -122,8 +59,6 @@
 
 
 
-
-    
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView

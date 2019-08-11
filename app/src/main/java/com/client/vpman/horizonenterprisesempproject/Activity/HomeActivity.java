@@ -4,37 +4,38 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.client.vpman.horizonenterprisesempproject.Adapter.DemoFragmentStateAdapter;
+import com.client.vpman.horizonenterprisesempproject.Fragment.Recent;
+import com.client.vpman.horizonenterprisesempproject.Fragment.ToDo;
+import com.client.vpman.horizonenterprisesempproject.Fragment.User;
 import com.client.vpman.horizonenterprisesempproject.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+
+import static com.client.vpman.horizonenterprisesempproject.useful.UtilityMethod.gonextFragmentWithBackStack;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
     NavigationView navigationView;
     MenuItem prevMenuItem;
-    private DrawerLayout mDrawereLayout;
+    public static DrawerLayout mDrawereLayout;
     private ActionBarDrawerToggle drawerToggle;
-
-    private ViewPager mViewPager;
-    private DemoFragmentStateAdapter adapter;
+    Context mContext;
     FloatingActionButton floatingActionButton;
 
 
@@ -45,9 +46,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         mDrawereLayout = findViewById(R.id.Main);
         toolbar = findViewById(R.id.appBar);
-        floatingActionButton=findViewById(R.id.fab007);
+        floatingActionButton = findViewById(R.id.fab007);
         floatingActionButton.setTransitionName("reveal");
-
+        mContext = HomeActivity.this;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -55,9 +56,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigation);
 
 
-        mViewPager = findViewById(R.id.pager);
-        adapter = new DemoFragmentStateAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(adapter);
+        ToDo fragment = new ToDo();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.swipe_left, R.anim.swipe_right, R.anim.swipe_right, R.anim.swipe_left);
+        transaction.addToBackStack(null);
+        transaction.add(R.id.container, fragment, "");
+        transaction.commit();
 
 
         drawerToggle = new ActionBarDrawerToggle(this, mDrawereLayout, R.string.open, R.string.close);
@@ -72,30 +77,31 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
         BottomNavigationView bottomNav = findViewById(R.id.bottombar007);
 
-    floatingActionButton.setOnClickListener(this::presentActivity);
+        floatingActionButton.setOnClickListener(this::presentActivity);
 
         bottomNav.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId()) {
                 case R.id.Todo:
-                    mViewPager.setCurrentItem(0);
+                    gonextFragmentWithBackStack(mContext, new ToDo());
                     floatingActionButton.setVisibility(View.VISIBLE);
                     break;
                 case R.id.recent:
-                    mViewPager.setCurrentItem(1);
+                    gonextFragmentWithBackStack(mContext, new Recent());
                     floatingActionButton.setVisibility(View.GONE);
                     break;
                 case R.id.profile:
-                    mViewPager.setCurrentItem(2);
+                    gonextFragmentWithBackStack(mContext, new User());
                     floatingActionButton.setVisibility(View.GONE);
                     break;
                 default:
-                    mViewPager.setCurrentItem(0);
+                    gonextFragmentWithBackStack(mContext, new ToDo());
                     break;
             }
             return true;
         });
 
 
+/*
 
       mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
           @Override
@@ -138,6 +144,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
           }
       });
 
+    }
+*/
     }
 
     @Override

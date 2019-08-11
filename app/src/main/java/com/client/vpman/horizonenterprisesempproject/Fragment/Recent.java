@@ -21,11 +21,5 @@ public class Recent extends Fragment
         return view;
     }
 
-    public static Recent newInstance(String text) {
-        Recent f = new Recent();
-        Bundle b = new Bundle();
-        b.putString("msg", text);
-        f.setArguments(b);
-        return f;
-    }
+
 }

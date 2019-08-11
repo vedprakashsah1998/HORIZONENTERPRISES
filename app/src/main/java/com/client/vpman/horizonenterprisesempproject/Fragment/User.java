@@ -21,11 +21,5 @@ public class User extends Fragment
         return view;
     }
 
-    public static User newInstance(String text) {
-        User f = new User();
-        Bundle b = new Bundle();
-        b.putString("msg", text);
-        f.setArguments(b);
-        return f;
-    }
+
 }

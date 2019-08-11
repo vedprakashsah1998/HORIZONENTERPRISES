@@ -9,26 +9,24 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.client.vpman.horizonenterprisesempproject.R;
+import com.client.vpman.horizonenterprisesempproject.pojo.BeanSchoolDetail;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
+
+import java.util.List;
 
 public class RecsAdapter extends RecyclerView.Adapter<RecsAdapter.MyViewHolder>
 {
     private Context context;
+    List<BeanSchoolDetail> mList;
 
-    public RecsAdapter(Context context) {
+    public RecsAdapter(Context context, List<BeanSchoolDetail>  mList) {
         this.context = context;
+        this.mList = mList;
     }
 
-    private  Integer[] schools= {
-            R.drawable.ops,
-            R.drawable.oxford_school,
-            R.drawable.cropped,
-            R.drawable.ontonagon_school,
-            R.drawable.school
-    };
-    private String[] scName={"Oxford Public School","Oxford School","St.Xaviers Jr/Sr School","Cambridge School","Harvard School"};
 
     @NonNull
     @Override
@@ -41,14 +39,20 @@ public class RecsAdapter extends RecyclerView.Adapter<RecsAdapter.MyViewHolder>
     @Override
     public void onBindViewHolder(@NonNull RecsAdapter.MyViewHolder holder, int position) {
 
+        Glide.with(context).load(mList.get(position).getImage()).into(holder.imageView);
+         holder.schoolName.setText(mList.get(position).getSchoolName());
 
-    holder.imageView.setImageResource(schools[position]);
-    holder.schoolName.setText(scName[position]);
+         holder.imageView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+
+             }
+         });
     }
 
     @Override
     public int getItemCount() {
-        return schools.length;
+        return mList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder

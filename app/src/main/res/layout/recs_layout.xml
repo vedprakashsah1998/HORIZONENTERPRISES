@@ -1,42 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="11dp"
-    android:layout_marginTop="7dp"
-    android:layout_marginRight="11dp"
-    android:layout_marginBottom="7dp"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
     app:cardElevation="@dimen/cardview_default_elevation"
-    app:cardUseCompatPadding="true"
+
    >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
+    <ImageView
             android:id="@+id/img"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_centerInParent="true"
             android:transitionName="img"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/button_design007"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/oxford_school"
             tools:ignore="UnusedAttribute"/>
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img"
-            android:textSize="24sp"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textAlignment="center"
+            android:gravity="center|center_vertical"
             android:id="@+id/SchoolName"
-            android:textColor="#525562"
-            android:layout_marginTop="8dp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:text="St.Xavier Jr/Sr School"/>
 
-    </RelativeLayout>
 
 
 
-</com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
